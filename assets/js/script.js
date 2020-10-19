@@ -104,6 +104,7 @@ $(".list-group").on("click", "span", function() {
   dateInput.trigger("focus");
 });
 
+// value of due date was changed
 $(".list-group").on("blur", "input[type='text']", function() {
   // get current text
   var date = $(this)
@@ -114,14 +115,14 @@ $(".list-group").on("blur", "input[type='text']", function() {
   var status = $(this)
     .closest(".list-group")
     .attr("id")
-    .replace("list-","");
+    .replace("list-", "");
 
   // get the task's position in the list of other li elements
   var index = $(this)
     .closest(".list-group-item")
     .index();
 
-  //update task in array and re-save to localstorage
+  // update task in array and re-save to localstorage
   tasks[status][index].date = date;
   saveTasks();
 
